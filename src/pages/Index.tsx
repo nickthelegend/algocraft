@@ -1,27 +1,78 @@
-import { WebGLShader } from "@/components/ui/web-gl-shader";
-import { LiquidButton } from '@/components/ui/liquid-glass-button' 
+import { BlockchainBackground } from "@/components/ui/blockchain-background";
+import { Hero } from "@/components/ui/animated-hero";
+import { GlassCard } from "@/components/ui/glass-card";
+import { Button } from "@/components/ui/button";
+import { Code, Zap, Brain, ArrowRight } from "lucide-react";
 
 const Index = () => {
+  const features = [
+    {
+      icon: <Brain className="w-8 h-8 text-primary" />,
+      title: "AI-Powered Development",
+      description: "Leverage artificial intelligence to write, optimize, and debug smart contracts automatically with natural language processing."
+    },
+    {
+      icon: <Code className="w-8 h-8 text-primary" />,
+      title: "Drag & Drop Interface",
+      description: "Build complex smart contracts visually with our intuitive drag-and-drop interface, no coding experience required."
+    },
+    {
+      icon: <Zap className="w-8 h-8 text-primary" />,
+      title: "Instant Deployment",
+      description: "Deploy your smart contracts to Algorand testnet and mainnet with a single click, including automated testing."
+    }
+  ];
+
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-      <WebGLShader/> 
-      <div className="relative border border-[#27272a] p-2 w-full mx-auto max-w-3xl">
-      <main className="relative border border-[#27272a] py-10 overflow-hidden">
-                <h1 className="mb-3 text-white text-center text-7xl font-extrabold tracking-tighter md:text-[clamp(2rem,8vw,7rem)]">Design is Everything</h1>
-                <p className="text-white/60 px-6 text-center text-xs md:text-sm lg:text-lg">Unleashing creativity through bold visuals, seamless interfaces, and limitless possibilities.</p>
-                <div className="my-8 flex items-center justify-center gap-1">
-                    <span className="relative flex h-3 w-3 items-center justify-center">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-                        <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-                    </span>
-                    <p className="text-xs text-green-500">Available for New Projects</p>
+    <div className="relative min-h-screen overflow-hidden">
+      <BlockchainBackground />
+      
+      {/* Hero Section */}
+      <div className="relative z-10">
+        <Hero />
+      </div>
+
+      {/* Features Section */}
+      <div className="relative z-10 py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16">
+            Build the Future of <span className="text-primary">DeFi</span>
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {features.map((feature, index) => (
+              <GlassCard key={index} delay={index * 0.2}>
+                <div className="flex flex-col items-center text-center">
+                  <div className="mb-4">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                
-            <div className="flex justify-center"> 
-                <LiquidButton className="text-white border rounded-full" size={'xl'}>Let's Go</LiquidButton> 
-            </div> 
-            </main>
-            </div>
+              </GlassCard>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center mt-20">
+            <GlassCard className="max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Ready to Start Building?
+              </h3>
+              <p className="text-muted-foreground mb-8">
+                Join thousands of developers building the next generation of decentralized applications on Algorand.
+              </p>
+              <Button size="lg" className="gap-2">
+                Launch Playground <ArrowRight className="w-4 h-4" />
+              </Button>
+            </GlassCard>
+          </div>
+        </div>
+      </div>
     </div>
   )
 };
