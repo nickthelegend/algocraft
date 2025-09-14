@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from './providers'
+import { Header } from '@/components/ui/header'
 
 export const metadata: Metadata = {
   title: 'AlgoCraft',
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
+          <Header />
           {children}
         </Providers>
       </body>
