@@ -3,8 +3,8 @@ import './globals.css'
 import { Providers } from './providers'
 
 export const metadata: Metadata = {
-  title: 'Vite React Shadcn TS',
-  description: 'Migration to Next.js 15',
+  title: 'AlgoCraft',
+  description: 'AI-Powered Algorithm Development Platform',
 }
 
 export default function RootLayout({

@@ -4,25 +4,41 @@ import { WebGLShader } from "@/components/ui/web-gl-shader";
 import { Hero } from "@/components/ui/animated-hero";
 import { GlassCard } from "@/components/ui/glass-card";
 import { GlassButton } from "@/components/ui/glass-button";
-import { Code, Zap, Brain, ArrowRight, Home as HomeIcon, Settings, User, FileText, Shield, HelpCircle } from "lucide-react";
+import { Code, Zap, Brain, ArrowRight, Home as HomeIcon, Settings, User, FileText, Shield, HelpCircle, Play, GitBranch, Layers, Cpu } from "lucide-react";
+import Link from "next/link";
 import { ExpandableTabs } from "@/components/ui/expandable-tabs";
 
 const Home = () => {
-  const features = [
+  const platforms = [
+    {
+      icon: <Play className="w-8 h-8 text-primary" />,
+      title: "Playground",
+      description: "Experiment with code, test algorithms, and prototype your ideas in our interactive development environment.",
+      href: "/playground"
+    },
+    {
+      icon: <GitBranch className="w-8 h-8 text-primary" />,
+      title: "AlgoFlow",
+      description: "Visual algorithm design and workflow automation. Create complex algorithmic processes with drag-and-drop simplicity.",
+      href: "/algoflow"
+    },
+    {
+      icon: <Layers className="w-8 h-8 text-primary" />,
+      title: "ArcCraft",
+      description: "Architecture design and system crafting tools. Build scalable, robust system architectures with intelligent recommendations.",
+      href: "/arccraft"
+    },
     {
       icon: <Brain className="w-8 h-8 text-primary" />,
-      title: "AI-Powered Development",
-      description: "Leverage artificial intelligence to write, optimize, and debug smart contracts automatically with natural language processing."
+      title: "Algo AI",
+      description: "AI-powered algorithm generation and optimization. Let artificial intelligence create, analyze, and improve your algorithms.",
+      href: "/algo-ai"
     },
     {
-      icon: <Code className="w-8 h-8 text-primary" />,
-      title: "Drag & Drop Interface",
-      description: "Build complex smart contracts visually with our intuitive drag-and-drop interface, no coding experience required."
-    },
-    {
-      icon: <Zap className="w-8 h-8 text-primary" />,
-      title: "Instant Deployment",
-      description: "Deploy your smart contracts to Algorand testnet and mainnet with a single click, including automated testing."
+      icon: <Shield className="w-8 h-8 text-primary" />,
+      title: "Algorand Smart Contracts AI",
+      description: "AI-powered Algorand smart contract development. Generate, audit, and deploy secure smart contracts with intelligent assistance.",
+      href: "/algorand-smart-contracts-ai"
     }
   ];
 
@@ -56,22 +72,27 @@ const Home = () => {
       <div className="relative z-10 py-12 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-foreground mb-12 sm:mb-16">
-            Build the Future of <span className="text-primary">DeFi</span>
+            Explore Our <span className="text-primary">Platforms</span>
           </h2>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-            {features.map((feature, index) => (
-              <GlassCard key={index} delay={index * 0.2}>
-                <div className="flex flex-col items-center text-center">
+            {platforms.map((platform, index) => (
+              <GlassCard key={index}>
+                <div className="flex flex-col items-center text-center h-full">
                   <div className="mb-4">
-                    {feature.icon}
+                    {platform.icon}
                   </div>
                   <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-3">
-                    {feature.title}
+                    {platform.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                    {feature.description}
+                  <p className="text-muted-foreground leading-relaxed text-sm sm:text-base mb-6 flex-grow">
+                    {platform.description}
                   </p>
+                  <Link href={platform.href}>
+                    <GlassButton variant="primary" className="w-full">
+                      Start Building
+                    </GlassButton>
+                  </Link>
                 </div>
               </GlassCard>
             ))}
@@ -84,11 +105,13 @@ const Home = () => {
                 Ready to Start Building?
               </h3>
               <p className="text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base">
-                Join thousands of developers building the next generation of decentralized applications.
+                Choose your preferred platform and start creating innovative solutions today.
               </p>
-               <GlassButton size="xl" variant="primary" className="rounded-full">
-                 Launch Playground <ArrowRight className="w-4 h-4" />
-               </GlassButton>
+               <Link href="/playground">
+                 <GlassButton size="xl" variant="primary" className="rounded-full">
+                   Start Building
+                 </GlassButton>
+               </Link>
             </GlassCard>
           </div>
         </div>
