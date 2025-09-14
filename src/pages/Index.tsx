@@ -1,7 +1,7 @@
-import { BlockchainBackground } from "@/components/ui/blockchain-background";
+import { WebGLShader } from "@/components/ui/web-gl-shader";
 import { Hero } from "@/components/ui/animated-hero";
 import { GlassCard } from "@/components/ui/glass-card";
-import { Button } from "@/components/ui/button";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { Code, Zap, Brain, ArrowRight } from "lucide-react";
 
 const Index = () => {
@@ -25,7 +25,7 @@ const Index = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <BlockchainBackground />
+      <WebGLShader />
       
       {/* Hero Section */}
       <div className="relative z-10">
@@ -66,9 +66,9 @@ const Index = () => {
               <p className="text-muted-foreground mb-8">
                 Join thousands of developers building the next generation of decentralized applications on Algorand.
               </p>
-              <Button size="lg" className="gap-2">
-                Launch Playground <ArrowRight className="w-4 h-4" />
-              </Button>
+               <LiquidButton size="xl" className="text-white border rounded-full">
+                 Launch Playground <ArrowRight className="w-4 h-4" />
+               </LiquidButton>
             </GlassCard>
           </div>
         </div>
