@@ -23,18 +23,6 @@ const Home = () => {
       href: "/algoflow"
     },
     {
-      icon: <Layers className="w-8 h-8 text-primary" />,
-      title: "ArcCraft",
-      description: "Architecture design and system crafting tools. Build scalable, robust system architectures with intelligent recommendations.",
-      href: "/arccraft"
-    },
-    {
-      icon: <Brain className="w-8 h-8 text-primary" />,
-      title: "Algo AI",
-      description: "AI-powered algorithm generation and optimization. Let artificial intelligence create, analyze, and improve your algorithms.",
-      href: "/algo-ai"
-    },
-    {
       icon: <Shield className="w-8 h-8 text-primary" />,
       title: "Algorand Smart Contracts AI",
       description: "AI-powered Algorand smart contract development. Generate, audit, and deploy secure smart contracts with intelligent assistance.",
@@ -75,7 +63,7 @@ const Home = () => {
             Explore Our <span className="text-primary">Platforms</span>
           </h2>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
             {platforms.map((platform, index) => (
               <GlassCard key={index}>
                 <div className="flex flex-col items-center text-center h-full">
@@ -108,7 +96,7 @@ const Home = () => {
                 Choose your preferred platform and start creating innovative solutions today.
               </p>
                <Link href="/playground">
-                 <GlassButton size="xl" variant="primary" className="rounded-full">
+                 <GlassButton size="xl" variant="primary" className="rounded-full inline-flex items-center">
                    Start Building
                  </GlassButton>
                </Link>
