@@ -1,6 +1,8 @@
 'use client'
 
-import { WebGLShader } from "@/components/ui/web-gl-shader";
+import { useRef } from 'react';
+import { motion } from "framer-motion";
+import GridDistortion from "@/components/GridBackground";
 import { Hero } from "@/components/ui/animated-hero";
 import { GlassCard } from "@/components/ui/glass-card";
 import { GlassButton } from "@/components/ui/glass-button";
@@ -42,18 +44,47 @@ const Home = () => {
     }
   ];
 
+  const heroRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
+
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <WebGLShader />
+      <div style={{ width: '100%', height: '100vh', position: 'relative' }}>
+        <GridDistortion
+          imageSrc="https://static.vecteezy.com/system/resources/previews/007/622/535/non_2x/abstract-template-blue-fluid-gradient-shapes-with-wave-lines-on-blue-background-vector.jpg"
+          grid={10}
+          mouse={0.1}
+          strength={0.15}
+          relaxation={0.9}
+          className="custom-class"
+        />
+      </div>
       
       {/* Hero Section */}
-      <div className="relative z-10">
+      <div ref={heroRef} className="relative z-10 h-screen flex items-center">
         <Hero />
+        {/* Pagination */}
+        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+          {[heroRef, featuresRef].map((ref, index) => (
+            <motion.button
+              key={index}
+              onClick={() => scrollToSection(ref)}
+              className="w-3 h-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30"
+              whileHover={{ scale: 1.2, bg: 'white' }}
+              whileTap={{ scale: 0.9 }}
+              initial={false}
+            />
+          ))}
+        </div>
       </div>
 
 
       {/* Features Section */}
-      <div className="relative z-10 py-12 sm:py-20">
+      <div ref={featuresRef} className="relative z-10 py-12 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-foreground mb-12 sm:mb-16">
             Explore Our <span className="text-primary">Platforms</span>
