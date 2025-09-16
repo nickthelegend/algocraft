@@ -52,11 +52,12 @@ const Home = () => {
           strength={0.15}
           relaxation={0.9}
           className="custom-class"
-        />
-        {/* Hero Section overlaid on background */}
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-transparent">
-          <Hero />
-        </div>
+        >
+          {/* Hero Section overlaid on background */}
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-transparent">
+            <Hero />
+          </div>
+        </GridDistortion>
       </div>
       
       {/* Features Section */}
