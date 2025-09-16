@@ -32,7 +32,7 @@ const Home = () => {
       icon: <Brain className="w-8 h-8 text-primary" />,
       title: "Algo AI",
       description: "AI-powered algorithm generation and optimization. Let artificial intelligence create, analyze, and improve your algorithms.",
-      href: "/algo-ai"
+      href: "/ai"
     },
     {
       icon: <Shield className="w-8 h-8 text-primary" />,

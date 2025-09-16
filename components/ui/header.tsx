@@ -30,7 +30,7 @@ export function Header() {
             Playground
           </Link>
           <Link
-            href="/algo-ai"
+            href="/ai"
             className="px-4 py-2 rounded-full text-white/90 backdrop-blur-sm bg-black/30 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-sm font-medium"
           >
             Algo AI
