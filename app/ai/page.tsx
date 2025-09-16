@@ -13,7 +13,7 @@ export default function AI() {
       <section className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
           <Iridescence
-            color={[0.5, 0.1, 0.3]}
+            color={[1, 1, 1]}
             mouseReact={false}
             amplitude={0.1}
             speed={1.0}
