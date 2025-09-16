@@ -39,22 +39,6 @@ const Home = () => {
         <Hero />
       </div>
 
-      {/* Navigation Tabs - Top Center */}
-      <div className="absolute top-6 left-1/2 transform -translate-x-1/2 z-20">
-        <ExpandableTabs 
-          tabs={[
-            { title: "Dashboard", icon: HomeIcon },
-            { title: "Smart Contracts", icon: Code },
-            { type: "separator" },
-            { title: "AI Tools", icon: Brain },
-            { title: "Deploy", icon: Zap },
-            { type: "separator" },
-            { title: "Profile", icon: User },
-            { title: "Settings", icon: Settings }
-          ]}
-          activeColor="text-primary"
-        />
-      </div>
 
       {/* Features Section */}
       <div className="relative z-10 py-12 sm:py-20">
