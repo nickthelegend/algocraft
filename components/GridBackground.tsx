@@ -8,7 +8,6 @@ interface GridDistortionProps {
   relaxation?: number;
   imageSrc: string;
   className?: string;
-  children?: React.ReactNode;
 }
 
 const vertexShader = `
@@ -42,8 +41,7 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
   strength = 0.15,
   relaxation = 0.9,
   imageSrc,
-  className = '',
-  children
+  className = ''
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -269,6 +267,7 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 
   return (
     <div
+      ref={containerRef}
       className={`relative overflow-hidden ${className}`}
       style={{
         width: '100%',
@@ -276,27 +275,7 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
         minWidth: '0',
         minHeight: '0'
       }}
-    >
-      <div
-        ref={containerRef}
-        style={{
-          position: 'absolute',
-          inset: 0,
-          zIndex: 1
-        }}
-      />
-      {children && (
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            zIndex: 2
-          }}
-        >
-          {children}
-        </div>
-      )}
-    </div>
+    />
   );
 };
 
