@@ -1,23 +1,30 @@
 'use client'
 
 import { GlassCard } from "@/components/ui/glass-card";
+import { GlassButton } from "@/components/ui/glass-button";
 import { Terminal, Code, Layers, Rocket, Share2 } from "lucide-react";
 import Iridescence from "@/components/Iridescence";
 import { motion } from "framer-motion";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 export default function IDE() {
-  const handleStartBuilding = () => {
+  const handleStartCoding = () => {
     window.open('https://ide.algocraft.fun/', '_blank');
+  };
+
+  const scrollToFeatures = () => {
+    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <div className="min-h-screen overflow-hidden">
+      <ScrollProgress />
       
       {/* Main Hero Section with Iridescence - Centered IDE Content */}
       <section className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
           <Iridescence
-            color={[0.1, 0.3, 0.3]}
+            color={[0.15, 0.35, 0.3]}
             mouseReact={false}
             amplitude={0.1}
             speed={1.0}
@@ -35,21 +42,29 @@ export default function IDE() {
                 <Terminal className="w-16 h-16 text-primary" />
               </div>
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 tracking-tight">
-                Algorand IDE
+                Professional Algorand IDE
               </h1>
               <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl leading-relaxed">
-                Build, test, and deploy smart contracts with our powerful integrated development environment. Code with confidence on Algorand blockchain.
+                Full-featured development environment for Algorand smart contracts. Write, test, and deploy with professional-grade tools.
               </p>
+              <div className="flex flex-wrap gap-3 justify-center mb-8">
+                <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">TEAL Editor</span>
+                <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">PyTeal Support</span>
+                <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">Debugger</span>
+                <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">TestNet/MainNet</span>
+              </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button 
-                  onClick={handleStartBuilding}
-                  className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg hover:bg-primary/90 transition-colors"
+                <GlassButton 
+                  onClick={handleStartCoding}
+                  variant="primary" 
+                  size="lg" 
+                  className="px-10 py-5 text-lg"
                 >
-                  Start Building
-                </button>
-                <button className="px-8 py-4 border-2 border-primary text-primary rounded-full font-bold text-lg hover:bg-primary hover:text-primary-foreground transition-colors">
-                  View Documentation
-                </button>
+                  Start Coding
+                </GlassButton>
+                <GlassButton onClick={scrollToFeatures} variant="outline" size="lg" className="px-10 py-5 text-lg">
+                  View Features
+                </GlassButton>
               </div>
             </motion.div>
           </div>
@@ -57,7 +72,7 @@ export default function IDE() {
       </section>
 
       {/* Feature Hero Section 1: Code Editor - Full Screen */}
-      <section className="min-h-screen py-20 flex items-center bg-background/50">
+      <section id="features" className="min-h-screen py-20 flex items-center bg-background/50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center mb-6">
@@ -74,22 +89,31 @@ export default function IDE() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-semibold text-foreground mb-4">Smart Code Assistance</h3>
-                <p className="text-muted-foreground mb-6">Intelligent features to boost your productivity and code quality.</p>
+                <p className="text-muted-foreground mb-6">Write TEAL and PyTeal with intelligent auto-completion, real-time error detection, and instant syntax validation for Algorand.</p>
                 <ul className="space-y-2 text-left">
                   <li className="flex items-center gap-2 text-primary"><Code className="w-4 h-4" /> Syntax highlighting for TEAL/PyTeal</li>
                   <li className="flex items-center gap-2 text-primary"><Code className="w-4 h-4" /> Auto-completion and snippets</li>
                   <li className="flex items-center gap-2 text-primary"><Code className="w-4 h-4" /> Real-time error detection</li>
                 </ul>
               </div>
-              <div className="text-center">
-                <div className="bg-muted rounded-lg p-6 mx-auto max-w-sm">
-                  <pre className="text-sm font-mono text-foreground">// Smart Contract
-#pragma version 8
-txn ApplicationID
-int 0
-==</pre>
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <div className="bg-gradient-to-br from-muted to-muted/50 rounded-lg p-6 mx-auto max-w-sm relative border border-primary/20 shadow-lg">
+                  <div className="absolute top-2 right-2 text-xs text-primary font-semibold">TEAL</div>
+                  <pre className="text-sm font-mono text-foreground text-left whitespace-pre leading-relaxed"><span className="text-blue-400">#pragma</span> version 8{`
+`}<span className="text-purple-400">txn</span> ApplicationID{`
+`}<span className="text-green-400">int</span> 0{`
+`}<span className="text-yellow-400">==</span>{`
+`}<span className="text-purple-400">assert</span>{`
+`}<span className="text-green-400">int</span> 1{`
+`}<span className="text-purple-400">return</span></pre>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </GlassCard>
         </div>
@@ -113,18 +137,55 @@ int 0
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-semibold text-foreground mb-4">Robust Testing Suite</h3>
-                <p className="text-muted-foreground mb-6">Test your contracts thoroughly before deployment with our integrated testing framework.</p>
+                <p className="text-muted-foreground mb-6">Comprehensive testing framework for Algorand smart contracts with transaction simulation and step-by-step debugging.</p>
                 <ul className="space-y-2 text-left">
                   <li className="flex items-center gap-2 text-primary"><Layers className="w-4 h-4" /> Unit testing framework</li>
                   <li className="flex items-center gap-2 text-primary"><Layers className="w-4 h-4" /> Transaction simulation</li>
                   <li className="flex items-center gap-2 text-primary"><Layers className="w-4 h-4" /> Step-by-step debugging</li>
                 </ul>
               </div>
-              <div className="text-center">
-                <button className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold">
-                  Run Tests
-                </button>
-              </div>
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <div className="bg-gradient-to-br from-muted to-muted/50 rounded-lg p-6 mx-auto max-w-sm border border-primary/20 shadow-lg">
+                  <div className="space-y-3 text-left text-sm">
+                    <motion.div 
+                      className="flex items-center gap-3"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      <span className="text-green-400 text-lg">✓</span> 
+                      <span className="text-foreground font-medium">Unit Testing</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center gap-3"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      <span className="text-green-400 text-lg">✓</span> 
+                      <span className="text-foreground font-medium">Transaction Simulation</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center gap-3"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <span className="text-green-400 text-lg">✓</span> 
+                      <span className="text-foreground font-medium">Visual Debugger</span>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </GlassCard>
         </div>
@@ -148,50 +209,34 @@ int 0
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-semibold text-foreground mb-4">Seamless Deployment</h3>
-                <p className="text-muted-foreground mb-6">Deploy to multiple networks with confidence and track your contract's performance.</p>
+                <p className="text-muted-foreground mb-6">One-click deployment to Algorand TestNet or MainNet with gas estimation and deployment history tracking.</p>
                 <ul className="space-y-2 text-left">
                   <li className="flex items-center gap-2 text-primary"><Rocket className="w-4 h-4" /> MainNet & TestNet support</li>
                   <li className="flex items-center gap-2 text-primary"><Rocket className="w-4 h-4" /> Gas estimation</li>
                   <li className="flex items-center gap-2 text-primary"><Rocket className="w-4 h-4" /> Deployment history</li>
                 </ul>
               </div>
-              <div className="text-center">
-                <div className="bg-muted rounded-lg p-6 mx-auto max-w-sm">
-                  <p className="text-sm text-foreground">✅ Contract deployed<br />App ID: 123456789</p>
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <div className="bg-gradient-to-br from-muted to-muted/50 rounded-lg p-6 mx-auto max-w-sm border border-primary/20 shadow-lg">
+                  <p className="text-sm text-muted-foreground mb-2">Deployment Status:</p>
+                  <div className="bg-background/50 rounded px-3 py-2 text-sm text-foreground">
+                    <span className="text-green-400">✓</span> Contract deployed to Algorand<br />
+                    <span className="text-primary font-mono">App ID: 123456789</span>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </GlassCard>
         </div>
       </section>
 
-      {/* Call-to-Action Hero Section - Full Screen */}
-      <section className="min-h-screen py-20 flex items-center bg-background/50">
-        <div className="container mx-auto px-4 sm:px-6 text-center">
-          <GlassCard className="max-w-4xl mx-auto p-12">
-            <div className="flex items-center justify-center mb-8">
-              <Terminal className="w-16 h-16 text-primary" />
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Start Building on Algorand Today
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Experience the most powerful blockchain IDE for Algorand development. Build, test, and deploy with confidence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button 
-                onClick={handleStartBuilding}
-                className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg hover:bg-primary/90 transition-colors"
-              >
-                Launch IDE
-              </button>
-              <button className="px-8 py-4 border-2 border-primary text-primary rounded-full font-bold text-lg hover:bg-primary hover:text-primary-foreground transition-colors">
-                View Examples
-              </button>
-            </div>
-          </GlassCard>
-        </div>
-      </section>
+
     </div>
   )
 }
