@@ -9,7 +9,7 @@ export const platforms: Platform[] = [
     href: "/algoflow"
   },
   {
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop&auto=format&q=75",
+    image: "https://news-cdn.moonbeam.co/How-smart-contracts-and-AI-could-work-together-App-Developer-Magazine_bk0g5oo0.jpg",
     icon: "Brain",
     title: "Algo AI",
     description: "Harness the power of artificial intelligence to generate, optimize, and debug algorithms automatically. Input your requirements, and let our AI suggest improvements, predict performance, and evolve your code into efficient, intelligent solutions.",
