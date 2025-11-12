@@ -16,7 +16,7 @@ export const platforms: Platform[] = [
     href: "/ai"
   },
   {
-    image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=600&fit=crop&auto=format&q=75",
+    image: "https://media.daily.dev/image/upload/f_auto,q_auto/v1/posts/8b297269313dd97ec33d5e453c54d160?_a=AQADKdt",
     icon: "Layers",
     title: "IDE",
     description: "Experience a professional-grade development environment tailored for Algorand smart contracts. Write TEAL and PyTeal with intelligent code completion, real-time error detection, and seamless deployment to testnet or mainnet. Build production-ready blockchain applications with confidence.",
