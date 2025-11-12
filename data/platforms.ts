@@ -2,7 +2,7 @@ import type { Platform } from '@/types/platform';
 
 export const platforms: Platform[] = [
   {
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop&auto=format&q=75",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQInEztpwVo1njkRyixBJbNufMJruAXovdc340VsrM2mXA5d30W756_uP1a_UaNh64uUZk&usqp=CAU",
     icon: "GitBranch",
     title: "AlgoFlow",
     description: "Design visual workflows and automate algorithmic processes with an intuitive drag-and-drop interface. Streamline your development pipeline, connect tools seamlessly, and visualize data flows to create efficient, scalable applications effortlessly.",
