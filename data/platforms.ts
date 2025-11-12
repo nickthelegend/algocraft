@@ -2,13 +2,6 @@ import type { Platform } from '@/types/platform';
 
 export const platforms: Platform[] = [
   {
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop&auto=format&q=75",
-    icon: "Play",
-    title: "Playground",
-    description: "Dive into our interactive coding environment where you can experiment with algorithms, test your code in real-time, and prototype innovative solutions without any setup. Perfect for developers, students, and enthusiasts looking to build and iterate quickly.",
-    href: "/playground"
-  },
-  {
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop&auto=format&q=75",
     icon: "GitBranch",
     title: "AlgoFlow",
