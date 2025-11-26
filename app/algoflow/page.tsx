@@ -118,7 +118,7 @@ export default function AlgoFlow() {
                 <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">Drag & Drop</span>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://algorand-ide.vercel.app/build" target="_blank" rel="noopener noreferrer">
+                <a href="https://flow.algocraft.fun/" target="_blank" rel="noopener noreferrer">
                   <GlassButton variant="primary" size="lg" className="px-10 py-5 text-lg">
                     Start Building
                   </GlassButton>

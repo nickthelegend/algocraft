@@ -8,6 +8,9 @@ import { Breadcrumbs } from '@/components/Breadcrumbs'
 export const metadata: Metadata = {
   title: 'AlgoCraft - Build Smart Contracts on Algorand',
   description: 'The complete Algorand development platform. Write, test, and deploy smart contracts with AI assistance, visual workflows, and professional-grade tools.',
+  icons: {
+    icon: '/logo.png',
+  },
   openGraph: {
     title: 'AlgoCraft - Build Smart Contracts on Algorand',
     description: 'The complete Algorand development platform with AI assistance.',
